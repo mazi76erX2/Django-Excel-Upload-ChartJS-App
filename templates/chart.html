@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_extra %}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.0/chart.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{% endblock head_extra %}
+
+{% block content %}
+  <div id="container" style="width: 100%;">
+    <canvas id="line-chart" width="800" height="450"></canvas>
+  </div>
+  <script>
+    new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: {{dates|safe}},
+        datasets: [{ 
+            data: {{amounts|safe}},
+            label: "Transactions (R)",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Tranasctions (in rands)'
+        },
+        scales: {
+          xAxes: [{
+            type: 'time',
+            time: {
+              unit: 'month'
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Dates'
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Transactions (R)'
+            }
+          }]
+        }
+      }
+    });
+    
+
+  </script>
+{% endblock content %}

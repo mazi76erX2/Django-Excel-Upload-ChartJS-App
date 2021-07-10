@@ -49,3 +49,23 @@ python manage.py runserver
 * Once the file is uploaded, the data is extracted using [openpyxl](https://openpyxl.readthedocs.io) and saved as a JSON data field to the correspoing model.
 ![JSON](example_files/json.png)
 * The user is then directed to the chart page which graphs all their data using [Chart.js](https://www.chartjs.org/docs/latest/charts/line.html)
+
+
+## Multi-Tenant ERD solution for organisation
+
+![Multi-Tenant-ERD](example_files/ERD.png)
+
+### Explanation
+
+1. The regions the organisation operate in are stored in the Region datbase.
+2. Each Region has a one-to-one relationship with a tenant.
+3. The Tenant table has a is_global boolean field to indicate whether the Region is
+gloabl so that they can see the user data of all regions.
+4. Each tenant will have multiple users and each user has a role. The assumption is that
+global will not have it's own users but be able to see other regions users.
+5. Each user has a user role.
+6. The User Permssions table determines what action each user role allows each user.
+The name field describe the permission. The codename is a shortened version of the
+name for usability. This allows only the admin of a tenant to add and authenticate
+users.
+7. This is related to other user permissions for each user role.

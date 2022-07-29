@@ -13,7 +13,7 @@ docutils==0.17.1
 et-xmlfile==1.1.0
 fett==0.3.2
 idna==2.10
-ipython==7.25.0
+ipython==8.4.0
 ipython-genutils==0.2.0
 jedi==0.18.0
 matplotlib-inline==0.1.2

@@ -1,4 +1,7 @@
 # Finances App
+
+## This GOT ME A JOB 😃
+
 View and assign tasks to users
 
 ## Usage

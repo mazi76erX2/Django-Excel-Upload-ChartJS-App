@@ -1,5 +1,5 @@
 asgiref==3.4.0
-certifi==2021.5.30
+certifi==2024.7.4
 Django==3.2.12
 et-xmlfile==1.1.0
 openpyxl==3.0.7
